@@ -34,7 +34,7 @@ class Blockchain {
         };
 
         for(let i=1; i<chain.length; i++){
-            const {timestamp, lastHash, hash, data} = chain[i];
+            const {timestamp, lastHash, hash, nonce, difficulty, data} = chain[i];
 
             const actuaLastHash = chain[i-1].hash;
 
@@ -42,7 +42,7 @@ class Blockchain {
                 return false;
             }
 
-            const validateHash = cryptoHash(timestamp, lastHash, data);
+            const validateHash = cryptoHash(timestamp, lastHash, data, nonce, difficulty);
 
             if (hash !== validateHash) {
                 return false;
