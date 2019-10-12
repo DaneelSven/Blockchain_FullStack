@@ -44,6 +44,7 @@ class Transaction {
     }
 
     static validTransaction(transaction){
+        console.log('debug transaction: ' , transaction);
         const {input: { address, amount, signature }, outputMap} = transaction;
 
         const outputTotal = Object.values(outputMap).reduce((total, outputAmount) => total + outputAmount); // this reduces functions reduces the array into a single value.
