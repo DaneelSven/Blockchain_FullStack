@@ -26,7 +26,7 @@ class PubSub {
         this.pubnub.addListener(this.listener());
     }
 
-    /*
+    
     broadcastChain() {
         this.publish({
           channel: CHANNELS.BLOCKCHAIN,
@@ -41,8 +41,7 @@ class PubSub {
         });
       }
 
-      */
-
+    
     listener() {
         return {
             message: messageObject => {
@@ -59,7 +58,8 @@ class PubSub {
                               { chain: parsedMessage.chain }
                             );
                           });
-                            break;
+                          break;
+                          
                     case CHANNELS.TRANSACTION:
                         if (!this.transactionPool.existingTransaction({
                             inputAddress: this.wallet.publicKey
